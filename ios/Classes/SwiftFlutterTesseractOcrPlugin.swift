@@ -22,7 +22,7 @@ public class SwiftFlutterTesseractOcrPlugin: NSObject, FlutterPlugin {
             let language: String? = params["language"] as? String
             var swiftyTesseract = SwiftyTesseract(language: .english)
             if(language != nil){
-                swiftyTesseract = SwiftyTesseract(language: .custom(language as String!))
+                swiftyTesseract = SwiftyTesseract(language: .custom((language as String?)!))
             }
             let  imagePath = params["imagePath"] as! String
             guard let image = UIImage(contentsOfFile: imagePath)else { return }
